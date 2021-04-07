@@ -46,7 +46,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-### 实现css 在ts中增加类型检查
+### 实现css引用 在ts中增加css类属性提示
 ```bash
 npm install typescript-plugin-css-modules --save-dev
 

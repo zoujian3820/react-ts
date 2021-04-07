@@ -1,3 +1,10 @@
+/*
+ * @Author: mrzou
+ * @Date: 2021-04-01 17:05:52
+ * @LastEditors: mrzou
+ * @LastEditTime: 2021-04-07 11:31:46
+ * @Description: file conten
+ */
 import { ReportHandler } from 'web-vitals';
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
