@@ -62,3 +62,64 @@ tsconfig.json
 	"typescript.enablePromptUseWorkspaceTsdk": true
     }    
 ```
+
+## 用TypeScript编写React的最佳实践
+https://blog.csdn.net/weixin_40906515/article/details/106798727
+
+- ESLint / Prettier
+    - 1.安装依赖
+        ```bash
+        npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react --save-dev
+        ```
+    - 2.在根目录下创建一个eslintrc.js 文件并添加以下内容：
+        ```javascript
+        module.exports = {
+            parser: '@typescript-eslint/parser', // 指定ESLint解析器
+            extends: [
+                'plugin:react/recommended', // 使用来自 @eslint-plugin-react 的推荐规则
+                'plugin:@typescript-eslint/recommended', // 使用来自@typescript-eslint/eslint-plugin的推荐规则
+                'prettier/@typescript-eslint', // 使用 ESLint -config-prettier 禁用来自@typescript-eslint/ ESLint 与 prettier 冲突的 ESLint 规则
+                'plugin:prettier/recommended',
+            ],
+            parserOptions: {
+                ecmaVersion: 2018, // 允许解析最新的 ECMAScript 特性
+                sourceType: 'module', // 允许使用 import
+                ecmaFeatures: {
+                    jsx: true, // 允许对JSX进行解析
+                },
+            },
+            rules: {
+                // 自定义规则
+                // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+            },
+            settings: {
+                react: {
+                    version: 'detect', // 告诉 eslint-plugin-react 自动检测 React 的版本
+                },
+            },
+        };
+        ```
+    - 3.添加 Prettier 依赖
+        ```bash
+        npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+        ```
+    - 4.在根目录下创建一个 .prettierrc.js 文件并添加以下内容：
+        ```javascript
+        module.exports = {
+            semi: true,
+            trailingComma: 'all',
+            singleQuote: true,
+            printWidth: 120,
+            tabWidth: 4,
+        };
+        ```    
+    - 5.VSCode 扩展和设置
+    我们添加了 ESLint 和 Prettier ，下一步就是在保存时自动修复/美化我们的代码。
+    首先，安装 VSCode 的 ESLint extension 和 Prettier extension 。这将使 ESLint 与您的编辑器无缝集成。
+    接下来，通过将以下内容添加到您的中来更新工作区设置 .vscode/settings.json
+    或者在vscode设置中搜索格式化，设置用户/作区，选保存时格式化代码
+        ```json
+        {
+            "editor.formatOnSave": true // 保存时格式化代码
+        }
+        ```
