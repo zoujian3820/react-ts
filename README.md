@@ -44,3 +44,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+### 实现css 在ts中增加类型检查
+```bash
+npm install typescript-plugin-css-modules --save-dev
+
+tsconfig.json
+    compilerOptions: {
+        "plugins": [{"name": "typescript-plugin-css-modules"}]
+    }
+.vscode -> settings.json
+    {
+    "editor.formatOnSave": true, # 这个是编辑器保存自动格式代
+    # 与ts相关的是下面两个
+    "typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true
+    }    
+```

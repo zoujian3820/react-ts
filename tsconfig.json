@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "noImpliciAny": false, //不需要显示的声明变量的类型any 与配置项allowJs搭配 能让ts与js混合编写
+    "noImplicitAny": false, //不需要显示的声明变量的类型any 与配置项allowJs搭配 能让ts与js混合编写
     "target": "es5", // 编绎后的js版本 ES5 ES6/ES2015 ES2016 ... ES2020  ESNext
     "lib": [ // 编绎时需要包括进来的库文件
       "dom",
@@ -16,10 +16,11 @@
     "noFallthroughCasesInSwitch": true,
     "module": "esnext", // 配置我们代码的模块系统 Node.js 的common Js 、 es6标准的esnext 、 require.js的AMD
     "moduleResolution": "node", // 决定我们编绎器的工作方式 node / classic(2019年废弃)
-    "resolveJsonModule": true,
+    "resolveJsonModule": true, // 是否支持引入json文件 要与 moduleResolution 一起使用
     "isolatedModules": true, // 编绎器会将每个文件作为单独的模块来使用
     "noEmit": true, // 表示当发生错误，编绎器不要生成 javascript 代码
-    "jsx": "react-jsx" // 允许编绎器支持编绎react代码
+    "jsx": "react-jsx", // 允许编绎器支持编绎react代码
+    "plugins": [{"name": "typescript-plugin-css-modules"}]
   },
   "include": [
     "src"
